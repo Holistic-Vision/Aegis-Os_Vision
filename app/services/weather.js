@@ -1,4 +1,3 @@
-```javascript
 const DEFAULT_LAT = 45.764;
 const DEFAULT_LON = 3.087;
 

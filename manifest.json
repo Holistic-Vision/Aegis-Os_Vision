@@ -1,0 +1,9 @@
+{
+  "name": "Aegis OS Vision",
+  "short_name": "Aegis",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#071018",
+  "theme_color": "#071018",
+  "icons": []
+}

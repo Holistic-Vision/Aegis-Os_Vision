@@ -20,12 +20,3 @@ export function renderTimers() {
   document.getElementById("t2").onclick = () => startTimer(600, "10 min");
   document.getElementById("t3").onclick = () => startTimer(1500, "Focus");
 }
-
-  view.querySelectorAll("[data-remove]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.timers.splice(Number(btn.dataset.remove), 1);
-      persistTimers();
-      renderTimers();
-    });
-  });
-}

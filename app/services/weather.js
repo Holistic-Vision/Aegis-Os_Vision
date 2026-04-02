@@ -1,35 +1,3 @@
----
-
-## 9) Ce qui manque encore volontairement
-
-Cette base est solide, mais elle n'est pas encore reliée à :
-- Spotify API
-- YouTube API
-- météo réelle
-- notifications système Android natives
-- Tasker/Shizuku/AutoVoice
-- APK wrapper
-
-Ces points demandent une couche d'intégration supplémentaire. La structure actuelle est faite pour les recevoir sans refonte.
-
----
-
-## 10) Ordre de build recommandé
-
-1. Faire tourner cette base localement
-2. Stabiliser HUD + navigation
-3. Brancher météo réelle
-4. Brancher audio local
-5. Ajouter mode miroir HUD
-6. Ajouter bridge Android / Tasker
-7. Emballer en WebView / APK
-
----
-
-## 11) V2 — patchs concrets à ajouter maintenant
-
-### `app/services/weather.js`
-
 ```javascript
 const DEFAULT_LAT = 45.764;
 const DEFAULT_LON = 3.087;

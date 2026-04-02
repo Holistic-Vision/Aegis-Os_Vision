@@ -1,8 +1,25 @@
-import { loadHUD } from '../modules/hud/hud.js';
+import { buildNav, navigate } from "./router.js";
+import { initClock } from "../services/clock.js";
+import { initNotifications } from "../services/notifications.js";
+import { initSystemStats } from "../modules/system/system.js";
+import { initVoice } from "../services/voice.js";
 
-window.addEventListener('load', () => {
-    console.log("Aegis OS Booting...");
-    document.getElementById("loader").remove();
+export function startEngine() {
+  buildNav();
+  initClock();
+  initNotifications();
+  initSystemStats();
+  initVoice();
+  wireGlobalButtons();
+  navigate("dashboard");
+}
 
-    loadHUD();
-});
+function wireGlobalButtons() {
+  document.getElementById("notify-btn")?.addEventListener("click", () => {
+    document.dispatchEvent(new CustomEvent("aegis:openNotifications"));
+  });
+
+  document.getElementById("theme-btn")?.addEventListener("click", () => {
+    document.body.classList.toggle("theme-alt");
+  });
+}

@@ -25,6 +25,12 @@ async function updateSystemStats() {
   if (networkEl) networkEl.textContent = `NET ${state.system.network}`;
   if (batteryEl) batteryEl.textContent = `BAT ${state.system.battery}`;
   if (weatherEl) weatherEl.textContent = `MÉTÉO ${state.system.weather}`;
+
+  if (document.getElementById("system-network")) {
+    document.getElementById("system-network").textContent = `Réseau : ${state.system.network}`;
+    document.getElementById("system-battery").textContent = `Batterie : ${state.system.battery}`;
+    document.getElementById("system-weather").textContent = `Météo : ${state.system.weather}`;
+  }
 }
 
 export function renderSystem() {
@@ -33,9 +39,10 @@ export function renderSystem() {
     <section class="panel-grid">
       <article class="panel">
         <h2>État système</h2>
-        <p>Réseau : ${state.system.network}</p>
-        <p>Batterie : ${state.system.battery}</p>
-        <p>Météo : ${state.system.weather}</p>
+        <p id="system-network">Réseau : ${state.system.network}</p>
+        <p id="system-battery">Batterie : ${state.system.battery}</p>
+        <p id="system-weather">Météo : ${state.system.weather}</p>
+        <p id="system-geo">Bridge Android / Tasker : en attente</p>
       </article>
     </section>
   `;

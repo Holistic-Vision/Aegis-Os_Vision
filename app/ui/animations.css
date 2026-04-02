@@ -1,0 +1,42 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #040b12;
+  z-index: 1000;
+}
+
+.boot-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid rgba(0,255,208,0.15);
+  border-top-color: var(--accent);
+  animation: spin 1s linear infinite;
+}
+
+.boot-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.boot-status {
+  color: var(--accent-2);
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}

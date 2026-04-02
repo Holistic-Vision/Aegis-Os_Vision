@@ -10,7 +10,7 @@ export function initTaskerBridge() {
       if (widget) widget.textContent = `MÉTÉO ${label}`;
     },
     ping() {
-      pushNotification("Bridge", "Passerelle Tasker simulée active.", "success");
+      pushNotification("Bridge", "Passerelle active", "success");
     }
   };
 }

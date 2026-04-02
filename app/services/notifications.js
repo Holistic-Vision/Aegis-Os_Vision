@@ -1,20 +1,35 @@
 import { state } from "../core/state.js";
 
-export function pushNotification(title, message, level = "info") {
-  const toastStack = document.getElementById("toast-stack");
-  const id = crypto.randomUUID();
-  state.notifications.unshift({ id, title, message, level, createdAt: Date.now() });
+const notifications = [];
 
-  const el = document.createElement("div");
-  el.className = `toast toast-${level}`;
-  el.innerHTML = `<strong>${title}</strong><span>${message}</span>`;
-  toastStack.appendChild(el);
+export function pushNotification(title, message, type = "info") {
+  const notif = {
+    id: Date.now(),
+    title,
+    message,
+    type,
+    time: new Date().toLocaleTimeString()
+  };
 
-  setTimeout(() => {
-    el.remove();
-  }, 4000);
+  notifications.unshift(notif);
+
+  renderNotification(notif);
 }
 
-export function initNotifications() {
-  pushNotification("Aegis", "Système initialisé.", "success");
+export function getNotifications() {
+  return notifications;
+}
+
+function renderNotification(n) {
+  const container = document.getElementById("notification-container");
+
+  if (!container) return;
+
+  const el = document.createElement("div");
+  el.className = "notif";
+  el.innerHTML = `<strong>${n.title}</strong><br>${n.message}`;
+
+  container.appendChild(el);
+
+  setTimeout(() => el.remove(), 4000);
 }

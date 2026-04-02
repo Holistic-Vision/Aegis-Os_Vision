@@ -60,3 +60,11 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.mirror-mode {
+  transform: scaleX(-1);
+}
+
+.mirror-mode * {
+  transform: scaleX(-1);
+}

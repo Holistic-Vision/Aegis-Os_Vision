@@ -1,0 +1,7 @@
+{
+  "appName": "Aegis OS Vision",
+  "defaultTheme": "cyan",
+  "weatherProvider": "mock",
+  "units": "metric",
+  "voiceWakeWord": "Aegis"
+}

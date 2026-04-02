@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Aegis OS Vision</title>
-<link rel="stylesheet" href="app/ui/theme.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071018" />
+  <title>Aegis OS Vision</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="app/ui/theme.css" />
+  <link rel="stylesheet" href="app/ui/layout.css" />
+  <link rel="stylesheet" href="app/ui/animations.css" />
+  <link rel="stylesheet" href="app/ui/components.css" />
 </head>
-
 <body>
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-ring"></div>
+    <div class="boot-title">AEGIS OS VISION</div>
+    <div id="boot-status" class="boot-status">Initialisation des modules...</div>
+  </div>
 
-<div id="app">
-    <div id="loader">INITIALISATION...</div>
-</div>
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">AEGIS</div>
+      <nav id="main-nav" class="nav"></nav>
+    </aside>
 
-<script src="app/core/engine.js"></script>
+    <main class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <div id="clock" class="clock-widget">--:--:--</div>
+          <div id="date" class="date-widget">--/--/----</div>
+        </div>
+        <div class="topbar-center">
+          <div id="network-widget" class="stat-chip">NET --</div>
+          <div id="battery-widget" class="stat-chip">BAT --%</div>
+          <div id="weather-widget" class="stat-chip">MÉTÉO --</div>
+        </div>
+        <div class="topbar-right">
+          <button id="voice-btn" class="action-btn">Voice</button>
+          <button id="notify-btn" class="action-btn">Alerts</button>
+          <button id="theme-btn" class="action-btn">Theme</button>
+        </div>
+      </header>
 
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <div id="toast-stack" class="toast-stack"></div>
+
+  <script type="module" src="app/core/boot.js"></script>
 </body>
 </html>

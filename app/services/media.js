@@ -1,11 +1,26 @@
-import { state } from "../core/state.js";
+let audio = new Audio();
 
-export function togglePlayback() {
-  state.media.isPlaying = !state.media.isPlaying;
-  return state.media.isPlaying;
+export function loadTrack(url) {
+  audio.src = url;
 }
 
-export function setTrack(title, sourceType = "local") {
-  state.media.currentTitle = title;
-  state.media.sourceType = sourceType;
+export function play() {
+  audio.play();
+}
+
+export function pause() {
+  audio.pause();
+}
+
+export function stop() {
+  audio.pause();
+  audio.currentTime = 0;
+}
+
+export function getState() {
+  return {
+    currentTime: audio.currentTime,
+    duration: audio.duration,
+    paused: audio.paused
+  };
 }

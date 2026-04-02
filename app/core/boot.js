@@ -12,15 +12,24 @@ const bootSteps = [
   "Aegis OS Vision prêt."
 ];
 
-async function runBootSequence() {
-  for (const step of bootSteps) {
-    bootStatus.textContent = step;
-    await new Promise((resolve) => setTimeout(resolve, 450));
-  }
+function showBootError(error) {
+  console.error("BOOT ERROR:", error);
+  bootStatus.textContent = "ERREUR BOOT : " + (error?.message || error || "inconnue");
+}
 
-  bootScreen.classList.add("fade-out");
-  app.classList.remove("hidden");
-  startEngine();
+async function runBootSequence() {
+  try {
+    for (const step of bootSteps) {
+      bootStatus.textContent = step;
+      await new Promise((resolve) => setTimeout(resolve, 450));
+    }
+
+    bootScreen.classList.add("fade-out");
+    app.classList.remove("hidden");
+    startEngine();
+  } catch (error) {
+    showBootError(error);
+  }
 }
 
 if ("serviceWorker" in navigator) {

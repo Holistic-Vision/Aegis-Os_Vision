@@ -1,0 +1,62 @@
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(8, 18, 28, 0.7);
+  box-shadow: 0 0 24px rgba(0, 255, 208, 0.08);
+}
+
+.nav-btn,
+.action-btn,
+.timer-list button {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  background: rgba(0,255,208,0.12);
+  color: var(--accent);
+}
+
+.stat-chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: var(--accent-2);
+}
+
+.toast-stack {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.toast {
+  min-width: 260px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #08131d;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.toast-success { border-color: rgba(60,255,154,0.4); }
+.toast-info { border-color: rgba(126,254,255,0.4); }
+.timer-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
